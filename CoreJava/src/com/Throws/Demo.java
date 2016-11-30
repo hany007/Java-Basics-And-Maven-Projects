@@ -2,7 +2,7 @@ package com.Throws;
 
 public class Demo 
 {
-	static void ThrowMethod() throws NullPointerException
+	void ThrowMethod() throws NullPointerException
 	{
 		System.out.println("Inside throwMethod");
 		throw new NullPointerException("Demo");
@@ -11,7 +11,8 @@ public class Demo
 	{
 		try
 		{
-			throwMethod();
+			Demo d=new Demo();
+			d.ThrowMethod();
 		}
 		catch(NullPointerException exp)
 		{
