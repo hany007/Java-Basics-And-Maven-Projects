@@ -194,12 +194,12 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>T-Shirt</h2>
+      <!--   <h2>T-Shirt</h2>
         <ol class="breadcrumb">
           <li><a href="index">Home</a></li>         
           <li><a href="#">Product</a></li>
           <li class="active">T-shirt</li>
-        </ol>
+        </ol> -->
       </div>
      </div>
    </div>

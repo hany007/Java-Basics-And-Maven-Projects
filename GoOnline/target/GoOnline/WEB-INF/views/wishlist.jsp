@@ -195,11 +195,11 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Wishlist Page</h2>
+      <!--   <h2>Wishlist Page</h2>
         <ol class="breadcrumb">
           <li><a href="index">Home</a></li>                   
           <li class="active">Wishlist</li>
-        </ol>
+        </ol> -->
       </div>
      </div>
    </div>

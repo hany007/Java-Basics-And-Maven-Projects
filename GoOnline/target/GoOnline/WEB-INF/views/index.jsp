@@ -72,7 +72,7 @@
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index">Home</a></li>
-              <li><a href="#">Men <span class="caret"></span></a>
+              <li><a href="product">Men <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Casual</a></li>
                   <li><a href="#">Sports</a></li>
@@ -91,7 +91,7 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="#">Women <span class="caret"></span></a>
+              <li><a href="product">Women <span class="caret"></span></a>
                 <ul class="dropdown-menu">  
                   <li><a href="#">Kurta & Kurti</a></li>                                                                
                   <li><a href="#">Trousers</a></li>              
@@ -199,7 +199,7 @@
               <div class="seq-title">
                <span data-seq>Save Up to 75% Off</span>                
                 <h2 data-seq>Men Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+               <!--  <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -211,7 +211,7 @@
               <div class="seq-title">
                 <span data-seq>Save Up to 40% Off</span>                
                 <h2 data-seq>Wristwatch Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <!-- <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -223,7 +223,7 @@
               <div class="seq-title">
                 <span data-seq>Save Up to 75% Off</span>                
                 <h2 data-seq>Jeans Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <!-- <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -235,7 +235,7 @@
               <div class="seq-title">
                 <span data-seq>Save Up to 75% Off</span>                
                 <h2 data-seq>Exclusive Shoes</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+               <!--  <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -247,7 +247,7 @@
               <div class="seq-title">
                 <span data-seq>Save Up to 50% Off</span>                
                 <h2 data-seq>Best Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+               <!--  <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>                   

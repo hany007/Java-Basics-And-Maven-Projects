@@ -194,11 +194,11 @@
     <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Checkout Page</h2>
-        <ol class="breadcrumb">
+       <!--  <h2>Checkout Page</h2> -->
+        <!-- <ol class="breadcrumb">
           <li><a href="index">Home</a></li>                   
           <li class="active">Checkout</li>
-        </ol>
+        </ol> -->
       </div>
      </div>
    </div>

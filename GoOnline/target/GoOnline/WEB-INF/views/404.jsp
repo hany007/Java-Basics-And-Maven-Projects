@@ -73,7 +73,7 @@
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index">Home</a></li>
-              <li><a href="#">Men <span class="caret"></span></a>
+              <li><a href="product">Men <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Casual</a></li>
                   <li><a href="#">Sports</a></li>

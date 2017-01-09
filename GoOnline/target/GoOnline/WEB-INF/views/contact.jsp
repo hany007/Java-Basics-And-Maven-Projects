@@ -193,11 +193,11 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Contact</h2>
+     <!--    <h2>Contact</h2>
         <ol class="breadcrumb">
           <li><a href="index">Home</a></li>         
           <li class="active">Contact</li>
-        </ol>
+        </ol> -->
       </div>
      </div>
    </div>

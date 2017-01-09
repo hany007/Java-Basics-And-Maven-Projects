@@ -195,11 +195,11 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Blog Archive</h2>
-        <ol class="breadcrumb">
+       <!--  <h2>Blog Archive</h2> -->
+      <!--   <ol class="breadcrumb">
           <li><a href="index">Home</a></li>         
           <li class="active">Blog Archive</li>
-        </ol>
+        </ol> -->
       </div>
      </div>
    </div>
