@@ -4,12 +4,11 @@
   <groupId>com.niit</groupId>
   <artifactId>GoOnline</artifactId>
   <packaging>war</packaging>
-  <version>GO-version2.0</version>
+  <version>GO-version2.2</version>
   <name>GoOnline Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-  
-  <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+      <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-core</artifactId>

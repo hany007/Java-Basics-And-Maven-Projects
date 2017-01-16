@@ -2,16 +2,17 @@ package com.niit.goonline.DAO;
 
 import java.util.List;
 
-import com.niit.goonline.model.Products;
+import com.niit.goonline.model.Product;
 
 public interface ProductDAO {
 	
-	public List<Products> list();
+	public List<Product> list();
 	
-	public Products get(String id);
+	public Product get(String id);
 
-	public boolean save(Products product);
+	public boolean save(Product product);
 	
-	public boolean update(Products product);
+	public boolean update(Product product);
 
 }
+

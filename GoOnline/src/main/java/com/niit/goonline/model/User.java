@@ -1,57 +1,40 @@
 package com.niit.goonline.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import org.springframework.stereotype.Component;
 
 @Entity
-@Component
-@Table(name = "USER")
 public class User {
 	@Id
-	@GeneratedValue
-	@Column(name = "USER_ID")
-	private int id;
-	@Column(name = "USER_NAME")
-	private String name;
-	@Column(name = "PASSWORD")
-	private String password;
-
-	private boolean Enable;
-
-	public boolean isEnable() {
-		return Enable;
+    @GeneratedValue
+    private int userId;
+    private String username;
+    private String password;
+    private boolean enabled;
+	public int getUserId() {
+		return userId;
 	}
-
-	public void setEnable(boolean enable) {
-		Enable = enable;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-
-	public int getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 }

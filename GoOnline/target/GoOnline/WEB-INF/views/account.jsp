@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -220,33 +223,45 @@
 											placeholder="Password">
 										<button type="submit" class="aa-browse-btn">Login</button>
 										<label class="rememberme" for="rememberme"><input
+						
 											type="checkbox" id="rememberme"> Remember me </label>
 										<p class="aa-lost-password">
 											<a href="#">Lost your password?</a>
 										</p>
-									</form>
+									 </form>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="aa-myaccount-register">
 									<h4>Register</h4>
-									<form:form action="resigter" method="post"
-										commandname="UserDetail" class="aa-login-form">
-										<label for="">First Name<span>*</span></label>
-										<input type="text" placeholder="First Name">
-										<label for="">Last Name<span>*</span></label>
-										<input type="text" placeholder="Last Name">
-										<label for="">Username or Email address<span>*</span></label>
-										<input type="text" placeholder="Username or email">
-										<label for="">Phone<span>*</span></label>
-										<input type="text" placeholder="9066XXXXXX">
-										<label for=""> Address<span>*</span></label>
-										<input type="text" placeholder="Address">
-										<label for="">Password<span>*</span></label>
-										<input type="password" placeholder="Password">
+									<form:form action="account" method="post" commandName="UserDetails" class="aa-login-form">
+										<label for="name-signup">First Name<span>*</span></label>
+										<form:errors path="FirstName" cssClass="error" />
+										<form:input type="text" placeholder="First Name"
+											path="FirstName" class="form-control" id="FirstName" />
+										<label for="name-signup">Last Name<span>*</span></label>
+										<form:errors path="LastName" cssClass="error" />
+										<form:input type="text" placeholder="Last Name"
+											path="LastName" class="form-control" id="LastName" />
+										<label for="name-signup">Username<span>*</span></label>
+										<form:errors path="Username" cssClass="error" />
+										<form:input type="text" placeholder="Username" path="Username"
+											class="form-control" id="Username" />
+										<label for="name-signup">Email<span>*</span></label>
+										<form:input type="text" placeholder="email" path="Email"
+											class="form-control" />
+
+										<label for="name-signup">Phone<span>*</span></label>
+										<form:input type="text" placeholder="9066XXXXXX" path="Phone"
+											class="form-control" />
+
+										<label for="name-signup">Password<span>*</span></label>
+										<form:input type="password" placeholder="Password"
+											path="Password" class="form-control" />
 
 
-										<button type="submit" class="aa-browse-btn">Register</button>
+
+										<input type="submit" value ="Register" />
 									</form:form>
 								</div>
 							</div>

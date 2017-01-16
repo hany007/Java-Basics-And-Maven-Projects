@@ -59,7 +59,7 @@
                <!--    <li class="hidden-xs"><a href="wishlist">Wishlist</a></li>
                   <li class="hidden-xs"><a href="cart">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout">Checkout</a></li> -->
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li><a href="login" data-toggle="modal" data-target="#login-modal">Login</a></li>
                 </ul>
               </div>
             </div>

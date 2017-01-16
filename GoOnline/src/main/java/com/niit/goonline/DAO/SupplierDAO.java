@@ -15,3 +15,4 @@ public interface SupplierDAO {
 	public boolean update(Supplier supplier);
 
 }
+

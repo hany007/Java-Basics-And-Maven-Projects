@@ -1,47 +1,38 @@
 package com.niit.goonline.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "SUPPLIER")
+@Table
 @Component
 public class Supplier {
-
+	
 	@Id
-	@Column(name = "SUP_ID")
-	private int supplier_id;
-	@Column(name = "SUP_NAME")
-	private String supplier_name;
-	@Column(name = "SUP_DIS")
-	private String supplier_desc;
-
-	public int getSupplier_id() {
-		return supplier_id;
+	@GeneratedValue
+	private int supplierid;
+	private String suppliername;
+	private String supplierdesc;
+	public int getSupplierid() {
+		return supplierid;
 	}
-
-	public void setSupplier_id(int supplier_id) {
-		this.supplier_id = supplier_id;
+	public void setSupplierid(int supplierid) {
+		this.supplierid = supplierid;
 	}
-
-	public String getSupplier_name() {
-		return supplier_name;
+	public String getSuppliername() {
+		return suppliername;
 	}
-
-	public void setSupplier_name(String supplier_name) {
-		this.supplier_name = supplier_name;
+	public void setSuppliername(String suppliername) {
+		this.suppliername = suppliername;
 	}
-
-	public String getSupplier_desc() {
-		return supplier_desc;
+	public String getSupplierdesc() {
+		return supplierdesc;
 	}
-
-	public void setSupplier_desc(String supplier_desc) {
-		this.supplier_desc = supplier_desc;
-	}
-
+	public void setSupplierdesc(String supplierdesc) {
+		this.supplierdesc = supplierdesc;
+	} 
 }

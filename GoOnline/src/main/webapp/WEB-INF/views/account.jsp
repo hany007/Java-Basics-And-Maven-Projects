@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <head>
@@ -223,38 +223,45 @@
 											placeholder="Password">
 										<button type="submit" class="aa-browse-btn">Login</button>
 										<label class="rememberme" for="rememberme"><input
+						
 											type="checkbox" id="rememberme"> Remember me </label>
 										<p class="aa-lost-password">
 											<a href="#">Lost your password?</a>
 										</p>
-									</form>
+									 </form>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="aa-myaccount-register">
 									<h4>Register</h4>
-									<form:form action="account" method="POST"
-										commandName="UserDetail" class="aa-login-form">
-										<label for="">First Name<span>*</span></label>
+									<form:form action="account" method="post" commandName="userDetails" class="aa-login-form">
+										<label for="name-signup">First Name<span>*</span></label>
+										<form:errors path="FirstName" cssClass="error" />
 										<form:input type="text" placeholder="First Name"
-											path="UserFirstName" class="form-control" id="UserFirstName"/>
-										<label for="">Last Name<span>*</span></label>
+											path="FirstName" class="form-control" id="FirstName" />
+										<label for="name-signup">Last Name<span>*</span></label>
+										<form:errors path="LastName" cssClass="error" />
 										<form:input type="text" placeholder="Last Name"
-											path="UserLastName" class="form-control" id="UserLastName" />
-										<label for="">Username<span>*</span></label>
-										<form:input type="text" placeholder="Username" path="userName" class="form-control" id="UserName"/>
-										<label for="">Email<span>*</span></label>
-										<form:input type="text" placeholder="email" path="Email" class="form-control"/>
+											path="LastName" class="form-control" id="LastName" />
+										<label for="name-signup">Username<span>*</span></label>
+										<form:errors path="Username" cssClass="error" />
+										<form:input type="text" placeholder="Username" path="username"
+											class="form-control" id="username" />
+										<label for="name-signup">Email<span>*</span></label>
+										<form:input type="text" placeholder="email" path="userEmail"
+											class="form-control" />
 
-										<label for="">Phone<span>*</span></label>
-										<form:input type="text" placeholder="9066XXXXXX" path="Phone" class="form-control"/>
+										<label for="name-signup">Phone<span>*</span></label>
+										<form:input type="text" placeholder="9066XXXXXX" path="userPhone"
+											class="form-control" />
 
-										<label for="">Password<span>*</span></label>
-										<form:input type="password" placeholder="Password" path="Password" class="form-control"/>
-											
+										<label for="name-signup">Password<span>*</span></label>
+										<form:input type="password" placeholder="password"
+											path="Password" class="form-control" />
 
 
-										<button type="submit" class="aa-browse-btn">Register</button>
+
+										<input type="submit" value ="Register" />
 									</form:form>
 								</div>
 							</div>
