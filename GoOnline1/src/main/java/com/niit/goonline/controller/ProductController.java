@@ -82,7 +82,7 @@ public class ProductController {
 		productDAO.saveOrUpdate(product);
 
 		MultipartFile itemImage = product.getItemImage();
-		path = Paths.get("E:\\maven1\\GoOnline1\\src\\main\\webapp\\img\\man\\" + product.getId() + ".png");
+		path = Paths.get("E:\\maven1\\GoOnline1\\src\\main\\webapp\\img\\pro-img\\" + product.getId() + ".png");
 
 		if (itemImage != null && !itemImage.isEmpty()) {
 			try {
@@ -109,7 +109,7 @@ public class ProductController {
 			e.printStackTrace();
 		}
 
-		path = Paths.get("E:\\maven1\\GoOnline1\\src\\main\\webapp\\img\\man\\" + id + ".png");
+		path = Paths.get("E:\\maven1\\GoOnline1\\src\\main\\webapp\\img\\pro-img\\" + id + ".png");
 
 		if (Files.exists(path)) {
 			try {
@@ -147,7 +147,7 @@ public class ProductController {
 		redirectAttributes.addFlashAttribute("selectedProduct", this.productDAO.get(id));
 		model.addAttribute("selectedProduct", this.productDAO.get(id));
 		model.addAttribute("categoryList", this.categoryDAO.list());
-		return "products";
+		return "product-detail";
 	}
 
 }

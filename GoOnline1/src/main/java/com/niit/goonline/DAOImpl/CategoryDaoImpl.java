@@ -18,114 +18,99 @@ import com.niit.goonline.model.Category;
 @Transactional
 public class CategoryDaoImpl implements CategoryDAO {
 
-	
+	@Autowired
+	private SessionFactory sessionFactory;
 
-		@Autowired
-		private SessionFactory sessionFactory;
+	@Transactional
+	public Category get(String id) {
 
-		
-		/*public CategoryDAOImpl(SessionFactory sessionFactory) {
-			this.sessionFactory = sessionFactory;	
-			System.out.println("inside session constructor");
-			//sessionFactory = new Configuration().configure().buildSessionFactory();
-			
-		}*/
+		String hql = "from Category where id='" + id + "'";
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Category> listCategory = (List<Category>) query.list();
+		if (listCategory != null && !listCategory.isEmpty()) {
+			return listCategory.get(0);
+		}
+		return null;
+	}
 
-		@Transactional
-		public Category get(String id) {
+	@Transactional
+	public Category getByName(String name) {
 
-		
-			String hql = "from Category where id='" + id + "'";
-			Session session = sessionFactory.openSession();		
-			Query query = session.createQuery(hql);
-			@SuppressWarnings("unchecked")
-			List<Category> listCategory = (List<Category>) query.list();
-			if (listCategory != null && !listCategory.isEmpty()) {			
-				return listCategory.get(0);
-			}
-			return null;
+		String hql = "from Category where name='" + name + "'";
+
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+
+		@SuppressWarnings("unchecked")
+		List<Category> listCategory = (List<Category>) query.list();
+
+		if (listCategory != null && !listCategory.isEmpty()) {
+
+			return listCategory.get(0);
 		}
 
-		@Transactional
-		public Category getByName(String name) {
+		return null;
+	}
 
-			String hql = "from Category where name='" + name + "'";
-			
-			
+	@Transactional
+	public boolean saveOrUpdate(Category category) {
+
+		try {
+			System.out.println("inside save or update");
 			Session session = sessionFactory.openSession();
-			Query query = session.createQuery(hql);
-			
-			@SuppressWarnings("unchecked")
-			List<Category> listCategory = (List<Category>) query.list();
+			session.saveOrUpdate(category);
+			session.flush();
 
-			if (listCategory != null && !listCategory.isEmpty()) {
-			
-				return listCategory.get(0);
-			}
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 
-			return null;
+			e.printStackTrace();
+			return false;
 		}
-		
-		@Transactional
-		public boolean saveOrUpdate(Category category) {
-			
-			try {
-				System.out.println("inside save or update");
-				Session session = sessionFactory.openSession();
-				session.saveOrUpdate(category); 
-				session.flush();
-						
-				return true;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-			
-				e.printStackTrace();
-				return false;
-			}
-		}
+	}
 
-
-		@Transactional
-		public boolean delete(String id) {
-			try {
-				Category categoryToDelete = new Category();
-				categoryToDelete.setId(id);
-				Session session = sessionFactory.openSession();
-				session.delete(categoryToDelete);
-				session.flush();
-				
-				return true;
-			} catch (HibernateException e) {
-				// TODO Auto-generated catch block
-			
-				e.printStackTrace();
-				return false;
-			}
-		}
-
-		
-		@Transactional
-		public List<Category> list() {
-
-			
-			String hql = "from Category ORDER BY ID ASC";
+	@Transactional
+	public boolean delete(String id) {
+		try {
+			Category categoryToDelete = new Category();
+			categoryToDelete.setId(id);
 			Session session = sessionFactory.openSession();
-			Query query = session.createQuery(hql);
-			List<Category> list = query.list();
-			if (list == null || list.isEmpty()) {
+			session.delete(categoryToDelete);
+			session.flush();
+
+			return true;
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Transactional
+	public List<Category> list() {
+
+		String hql = "from Category ORDER BY ID ASC";
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+		List<Category> list = query.list();
+		if (list == null || list.isEmpty()) {
 			System.out.println("list is empty");
-			}
-			
-			return list;
 		}
 
-		public boolean save(Category category) {
-			// TODO Auto-generated method stub
-			return false;
-		}
+		return list;
+	}
 
-		public boolean update(Category category) {
-			// TODO Auto-generated method stub
-			return false;
-		}
+	public boolean save(Category category) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean update(Category category) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

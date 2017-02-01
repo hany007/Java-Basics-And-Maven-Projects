@@ -1,5 +1,7 @@
 package com.niit.goonline.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,20 +26,19 @@ public class Product {
 	@Id
 	private String id;
 	@NotEmpty(message = "Product name can not be empty.")
-	@Column(unique = true, nullable=false)
+	@Column(unique = true, nullable = false)
 	private String name;
 	private String description;
-//	@NotEmpty(message = "Product price can not be empty.")
+	// @NotEmpty(message = "Product price can not be empty.")
 	private int price;
-	
+
 	private String category_id;
 	private String supplier_id;
-	
-	 @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	   /* @Json
-	    private List<CartItem> cartItemList;
-	
-	
+
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+	private List<CartItem> cartItemList;
+
 	public List<CartItem> getCartItemList() {
 		return cartItemList;
 	}
@@ -45,39 +46,26 @@ public class Product {
 	public void setCartItemList(List<CartItem> cartItemList) {
 		this.cartItemList = cartItemList;
 	}
+
 	@Transient
-    private MultipartFile itemImage;
-	
+	private MultipartFile itemImage;
+
 	public MultipartFile getItemImage() {
 		return itemImage;
 	}
 
 	public void setItemImage(MultipartFile itemImage) {
 		this.itemImage = itemImage;
-	}*/
-	 
-	 
-	 @Transient
-	    private MultipartFile itemImage;
-		
-		public MultipartFile getItemImage() {
-			return itemImage;
-		}
+	}
 
-		public void setItemImage(MultipartFile itemImage) {
-			this.itemImage = itemImage;
-		}
+	@ManyToOne
+	@JoinColumn(name = "category_id", nullable = false, updatable = false, insertable = false)
+	private Category category;
 
-	 
 	@ManyToOne
-    @JoinColumn(name="category_id", nullable = false, updatable = false, insertable = false)
-   	private Category category;
-	
-	@ManyToOne
-    @JoinColumn(name="supplier_id",nullable = false, updatable = false, insertable = false)
+	@JoinColumn(name = "supplier_id", nullable = false, updatable = false, insertable = false)
 	private Supplier supplier;
-	
-	
+
 	public Category getCategory() {
 		return category;
 	}
@@ -93,8 +81,6 @@ public class Product {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
-
-	
 
 	public String getCategory_id() {
 		return category_id;
@@ -124,20 +110,23 @@ public class Product {
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}

@@ -1,347 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Go Online | Cart Page</title>
-    
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go Online | Cart Page</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-    <!-- Font awesome -->
-    <link href="Resources/css/font-awesome.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="Resources/css/bootstrap.css" rel="stylesheet">   
-    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-    <link href="Resources/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
-    <!-- Product view slider -->
-    <link rel="stylesheet" type="text/css" href="Resources/css/jquery.simpleLens.css">    
-    <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="Resources/css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="Resources/css/nouislider.css">
-    <!-- Theme color -->
-    <link id="switcher" href="Resources/css/theme-color/default-theme.css" rel="stylesheet">
-    
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 
-    <!-- Main style sheet -->
-    <link href="Resources/css/style.css" rel="stylesheet">    
+<!-- Font awesome -->
+<link href="Resources/css/font-awesome.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="Resources/css/bootstrap.css" rel="stylesheet">
+<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+<link href="Resources/css/jquery.smartmenus.bootstrap.css"
+	rel="stylesheet">
+<!-- Product view slider -->
+<link rel="stylesheet" type="text/css"
+	href="Resources/css/jquery.simpleLens.css">
+<!-- slick slider -->
+<link rel="stylesheet" type="text/css" href="Resources/css/slick.css">
+<!-- price picker slider -->
+<link rel="stylesheet" type="text/css"
+	href="Resources/css/nouislider.css">
+<!-- Theme color -->
+<link id="switcher" href="Resources/css/theme-color/default-theme.css"
+	rel="stylesheet">
 
-    <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- Main style sheet -->
+<link href="Resources/css/style.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href='https://fonts.googleapis.com/css?family=Lato'
+	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway'
+	rel='stylesheet' type='text/css'>
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  </head>
-  <body>
-   
-   <!-- wpf loader Two -->
-    <div id="wpf-loader-two">          
-      <div class="wpf-loader-two-inner">
-        <span>Loading</span>
-      </div>
-    </div> 
-    <!-- / wpf loader Two -->       
- <!-- SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
-  <!-- END SCROLL TOP BUTTON -->
+</head>
+<body>
+
+	<!-- wpf loader Two -->
+	<div id="wpf-loader-two">
+		<div class="wpf-loader-two-inner">
+			<span>Loading</span>
+		</div>
+	</div>
+	<!-- / wpf loader Two -->
+	<!-- SCROLL TOP BUTTON -->
+	<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+	<!-- END SCROLL TOP BUTTON -->
 
 
-  <!-- Start header section -->
-  <%@include file="header.jsp" %>
-  <!-- / header section -->
-  <!-- menu -->
-  <section id="menu">
-    <div class="container">
-      <div class="menu-area">
-        <!-- Navbar -->
-        <div class="navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>          
-          </div>
-          <div class="navbar-collapse collapse">
-            <!-- Left nav -->
-            <ul class="nav navbar-nav">
-              <li><a href="index">Home</a></li>
-              <li><a href="product">Men <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>
-                  <li><a href="#">Standard</a></li>                                                
-                  <li><a href="#">T-Shirts</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Trousers</a></li>
-                  <!-- <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>                                      
-                    </ul>
-                  </li> -->
-                </ul>
-              </li>
-              <li><a href="product">Women <span class="caret"></span></a>
-                <ul class="dropdown-menu">  
-                  <li><a href="#">Kurta & Kurti</a></li>                                                                
-                  <li><a href="#">Trousers</a></li>              
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>                
-                  <li><a href="#">Sarees</a></li>
-                  <li><a href="#">Shoes</a></li>
-                   <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>
-                      <!-- <li><a href="#">And more.. <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Rings</a></li>
-                          <li><a href="#">Earrings</a></li>
-                          <li><a href="#">Jewellery Sets</a></li>
-                          <li><a href="#">Lockets</a></li>
-                          <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>                       
-                          <li><a href="#">Jeans</a></li>
-                          <li><a href="#">Polo T-Shirts</a></li>
-                          <li><a href="#">SKirts</a></li>
-                          <li><a href="#">Jackets</a></li>
-                          <li><a href="#">Tops</a></li>
-                          <li><a href="#">Make Up</a></li>
-                          <li><a href="#">Hair Care</a></li>
-                          <li><a href="#">Perfumes</a></li>
-                          <li><a href="#">Skin Care</a></li>
-                          <li><a href="#">Hand Bags</a></li>
-                          <li><a href="#">Single Bags</a></li>
-                          <li><a href="#">Travel Bags</a></li>
-                          <li><a href="#">Wallets & Belts</a></li>                        
-                          <li><a href="#">Sunglases</a></li>
-                          <li><a href="#">Nail</a></li>                       
-                        </ul>
-                      </li> -->                   
-                    </ul>
-                  </li>
-                </ul>
-              </li> 
-              <!-- <li><a href="#">Kids <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>
-                  <li><a href="#">Standard</a></li>                                                
-                  <li><a href="#">T-Shirts</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Trousers</a></li>
-                  <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>                                      
-                    </ul>
-                  </li>
-                </ul>
-              </li> -->
-              <!-- <li><a href="#">Sports</a></li>
-             <li><a href="#">Digital <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Camera</a></li>
-                  <li><a href="#">Mobile</a></li>
-                  <li><a href="#">Tablet</a></li>
-                  <li><a href="#">Laptop</a></li>                                                
-                  <li><a href="#">Accesories</a></li>                
-                </ul>
-              </li>
-              <li><a href="#">Furniture</a></li> -->            
-              <li><a href="blog-archive">Blog <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="blog-archive">Blog Style 1</a></li>
-                  <li><a href="blog-archive-2">Blog Style 2</a></li>
-                  <li><a href="blog-single">Blog Single</a></li>                
-                </ul>
-              </li>
-              <li><a href="contact">Contact</a></li>
-              <li><a href="#">Pages <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="product">Shop Page</a></li>
-                  <li><a href="product-detail">Shop Single</a></li>                
-                  <li><a href="404">404 Page</a></li>                
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>       
-    </div>
-  </section>
-  <!-- / menu -->
-    
-  <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
-   <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-      <!--   <h2>Cart Page</h2> -->
-      <!--   <ol class="breadcrumb">
+	<!-- Start header section -->
+	<%@include file="header.jsp"%>
+	<!-- / header section -->
+	<!-- menu -->
+
+	<!-- catg header banner section -->
+	<section id="aa-catg-head-banner">
+		<img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+		<div class="aa-catg-head-banner-area">
+			<div class="container">
+				<div class="aa-catg-head-banner-content">
+					<!--   <h2>Cart Page</h2> -->
+					<!--   <ol class="breadcrumb">
           <li><a href="index">Home</a></li>                   
           <li class="active">Cart</li>
         </ol> -->
-      </div>
-     </div>
-   </div>
-  </section>
-  <!-- / catg header banner section -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- / catg header banner section -->
 
- <!-- Cart view section -->
- <section id="cart-view">
-   <div class="container">
-     <div class="row">
-       <div class="col-md-12">
-         <div class="cart-view-area">
-           <div class="cart-view-table">
-             <form action="">
-               <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$250</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$250</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$150</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$150</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-3.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$50</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$50</td>
-                      </tr>
-                      <tr>
-                        <td colspan="6" class="aa-cart-view-bottom">
-                          <div class="aa-cart-coupon">
-                            <input class="aa-coupon-code" type="text" placeholder="Coupon">
-                            <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
-                          </div>
-                          <input class="aa-cart-view-btn" type="submit" value="Update Cart">
-                        </td>
-                      </tr>
-                      </tbody>
-                  </table>
-                </div>
-             </form>
-             <!-- Cart Total view -->
-             <div class="cart-view-total">
-               <h4>Cart Totals</h4>
-               <table class="aa-totals-table">
-                 <tbody>
-                   <tr>
-                     <th>Subtotal</th>
-                     <td>$450</td>
-                   </tr>
-                   <tr>
-                     <th>Total</th>
-                     <td>$450</td>
-                   </tr>
-                 </tbody>
-               </table>
-               <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
- <!-- / Cart view section -->
+	<!-- Cart view section -->
+	<section id="cart-view">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="cart-view-area">
+						<div class="cart-view-table">
+							<ul class="breadcrum">
+								<li><a class="active" href="<c:url value="#"/>">MY
+										ORDERS</a></li>
+								<li><a
+									href="<c:url value="/usercart/cart/refreshCart/${cartId}"/>"
+									class="btn btn-primary">REFRESH </a>
+								<li>
+								<li><a href="<spring:url value="/" />">CONTINUE
+										SHOPPING</a>
+								<li>
+								<li><a
+									href="<c:url value='/usercart/cart/clearCartItems/${cartId}'/>"
+									class="btn btn-danger center"><span
+										class="glyphicon glyphicon-remove-sign"></span>CLEAR CART</a>
+								<li>
+							</ul>
 
+							<div class="table-responsive">
+								<C:set var="grandTotal" scope="session" value="${0}" />
+								<h3 align="center" style="color: #79be25;">${successMsg}</h3>
+								<br>
+								<br>
+								<div class="row margin-left25">
+									<C:if test="${empty cartList}">
+										<h3 align="center" style="color: #ff0000;">Your cart is
+											empty</h3>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+									</C:if>
+									<C:if test="${!empty cartList}">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>Image</th>
+													<th class="width110">Product ID</th>
+													<th>Product</th>
+													<th>Price</th>
+													<th>Quantity</th>
+													<th>Total</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<C:forEach items="${cartList}" var="cartItem">
+													<tr>
+														<td><a class="remove"
+															href="<C:url value="/usercart/cart/removeItem/${cartItem.product.id}/${cartId}"/>"></a>
+															<a class="fa fa-close"></fa></a></td>
+														<td><a href="#"><img
+																src="<c:url value='/resources/img/productImages/${cartItem.product.id}.png'/>"
+																alt="img" width="140" height="140"></a></td>
+														<td>${cartItem.product.id}</td>
+														<td>${cartItem.product.name}</td>
+														<td>${cartItem.product.price}</td>
+														<td>${cartItem.quantity}&nbsp;&nbsp;&nbsp; <a
+															href="<c:url value="/usercart/cart/addQty/${cartItem.product.id}/${cartId}"/>"
+															class="btn btn-primary center">+ </a>&nbsp;&nbsp;&nbsp; <a
+															href="<c:url value="/usercart/cart/reduceQty/${cartItem.product.id}/${cartId}"/>"
+															class="btn btn-danger btnAction">- </a></td>
+														<td>${cartItem.totalPrice}</td>
+														
+													</tr>
+												</C:forEach>
+																								
+											</tbody>
+										</table>
+									</C:if>
+								</div>
 
-  <!-- Subscribe section -->
-  <section id="aa-subscribe">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-subscribe-area">
-            <h3>Subscribe our newsletter </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
-            <form action="" class="aa-subscribe-form">
-              <input type="email" name="" id="" placeholder="Enter your Email">
-              <input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / Subscribe section -->
-
-  <!-- footer -->  
-  <%@include file="footer.jsp" %>
-  <!-- / footer -->
-  <!-- Login Modal -->  
- 
+								<!-- Cart Total view -->
+								<div class="cart-view-total">
+									<h4>Cart Totals</h4>
+									<table class="aa-totals-table">
+										<tbody>
+											
+											<tr>
+												<th>Total</th>
+												<td><C:set var="grandTotal"
+											value="${cartItem.totalPrice+grandTotal}" /></td>
+											</tr>
+										</tbody>
+									</table>
+									<a href="<spring:url value="/checkout"/>" class="aa-cart-view-btn">Proced to Checkout</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- / Cart view section -->
 
 
-    
+	<!-- Subscribe section -->
+	<section id="aa-subscribe">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="aa-subscribe-area">
+						<h3>Subscribe our newsletter</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Ex, velit!</p>
+						<form action="" class="aa-subscribe-form">
+							<input type="email" name="" id="" placeholder="Enter your Email">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- / Subscribe section -->
+
+	<!-- footer -->
+	<%@include file="footer.jsp"%>
+	<!-- / footer -->
+	<!-- Login Modal -->
+
 	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="Resources/js/bootstrap.js"></script>  
+	<script src="Resources/js/bootstrap.js"></script>
 	<!-- SmartMenus jQuery plugin -->
 	<script type="text/javascript" src="Resources/js/jquery.smartmenus.js"></script>
 	<!-- SmartMenus jQuery Bootstrap Addon -->
-	<script type="text/javascript" src="Resources/js/jquery.smartmenus.bootstrap.js"></script>  
+	<script type="text/javascript"
+		src="Resources/js/jquery.smartmenus.bootstrap.js"></script>
 	<!-- Product view slider -->
-	<script type="text/javascript" src="Resources/js/jquery.simpleGallery.js"></script>
+	<script type="text/javascript"
+		src="Resources/js/jquery.simpleGallery.js"></script>
 	<script type="text/javascript" src="Resources/js/jquery.simpleLens.js"></script>
 	<!-- slick slider -->
 	<script type="text/javascript" src="Resources/js/slick.js"></script>
 	<!-- Price picker slider -->
 	<script type="text/javascript" src="Resources/js/nouislider.js"></script>
-	
-	<!-- Custom js -->
-	<script src="Resources/js/custom.js"></script> 
 
-  </body>
+	<!-- Custom js -->
+	<script src="Resources/js/custom.js"></script>
+
+</body>
 </html>

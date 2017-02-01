@@ -24,15 +24,8 @@ public class ProductDaoImpl implements ProductDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	/*public ProductDAOImpl( ) {
-			
-	}
-	
-	public ProductDAOImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;		
-	}*/
 
-	@javax.transaction.Transactional
+	@Transactional
 	public boolean save(Product product) {
 		// TODO Auto-generated method stub
 

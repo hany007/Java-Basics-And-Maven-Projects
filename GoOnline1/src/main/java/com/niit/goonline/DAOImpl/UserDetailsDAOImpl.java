@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.goonline.DAO.UserDetailsDAO;
+import com.niit.goonline.model.Cart;
 import com.niit.goonline.model.User;
 import com.niit.goonline.model.UserDetails;
 import com.niit.goonline.model.UserRole;
@@ -36,20 +37,21 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 		UserRole newUserRole = new UserRole();
 		newUserRole.setUsername(userDetails.getUsername());
-		newUserRole.setRole("ROLE_ADMIN");
+		newUserRole.setRole("ROLE_USER");
 
 		session.save(newUser);
 		session.saveOrUpdate(newUserRole);
 		session.saveOrUpdate(userDetails);
-		/*
-		 * Cart newCart = new Cart(); newCart.setUsersDetail(usersDetail);
-		 * usersDetail.setCart(newCart); session.saveOrUpdate(usersDetail);
-		 * session.saveOrUpdate(newCart);
-		 */
+
+		Cart newCart = new Cart();
+		newCart.setUsersDetail(userDetails);
+		userDetails.setCart(newCart);
+		session.saveOrUpdate(userDetails);
+		session.saveOrUpdate(newCart);
+
 		session.flush();
 	}
 
-	// LOOK HERE
 	@Transactional
 	public boolean isValidUser(String name) {
 		// select * from UserDetails where id='101' and password='niit'
