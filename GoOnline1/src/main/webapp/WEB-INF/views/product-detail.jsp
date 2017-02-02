@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="C"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <head>
@@ -28,27 +28,27 @@
 	crossorigin="anonymous"></script>
 
 <!-- Font awesome -->
-<link href="Resources/css/font-awesome.css" rel="stylesheet">
+<link href="<C:url value="Resources/css/font-awesome.css"/>" rel="stylesheet">
 <!-- Bootstrap -->
-<link href="Resources/css/bootstrap.css" rel="stylesheet">
+<link href="<C:url value="Resources/css/bootstrap.css"/>" rel="stylesheet">
 <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-<link href="Resources/css/jquery.smartmenus.bootstrap.css"
+<link href="<C:url value="Resources/css/jquery.smartmenus.bootstrap.css"/>"
 	rel="stylesheet">
 <!-- Product view slider -->
 <link rel="stylesheet" type="text/css"
-	href="Resources/css/jquery.simpleLens.css">
+	href="<C:url value="Resources/css/jquery.simpleLens.css"/>">
 <!-- slick slider -->
-<link rel="stylesheet" type="text/css" href="Resources/css/slick.css">
+<link rel="stylesheet" type="text/css" href="<C:url value="Resources/css/slick.css"/>">
 <!-- price picker slider -->
 <link rel="stylesheet" type="text/css"
-	href="Resources/css/nouislider.css">
+	href="<C:url value="Resources/css/nouislider.css"/>">
 <!-- Theme color -->
-<link id="switcher" href="Resources/css/theme-color/default-theme.css"
+<link id="switcher" href="<C:url value="Resources/css/theme-color/default-theme.css"/>"
 	rel="stylesheet">
 
 
 <!-- Main style sheet -->
-<link href="Resources/css/style.css" rel="stylesheet">
+<link href="<C:url value="Resources/css/style.css"/>" rel="stylesheet">
 
 <!-- Google Font -->
 <link href='https://fonts.googleapis.com/css?family=Lato'
@@ -84,7 +84,7 @@
 	<!-- / header section -->
 	<!-- catg header banner section -->
 	<section id="aa-catg-head-banner">
-		<img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+		<img src="<C:url value="img/fashion/fashion-header-bg-8.jpg"/>" alt="fashion img">
 		<div class="aa-catg-head-banner-area">
 			<div class="container">
 				<div class="aa-catg-head-banner-content">
@@ -121,7 +121,7 @@
 	</div>
 
 
-	<c:if test="${!empty selectedProduct.name}">
+	<C:if test="${!empty selectedProduct.name}">
 		<section id="aa-product-details">
 
 
@@ -134,39 +134,39 @@
 							<br>Rs.${selectedProduct.price} <br>${selectedProduct.category.name}
 							<br>${selectedProduct.supplier.name}
 
-							<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+							<C:if test="${pageContext.request.userPrincipal.name != 'admin'}">
 								<p>
 									
-									<c:if
+									<C:if
 										test="${pageContext.request.userPrincipal.name  != 'admin'}">
 										<a
-											href="<c:url value="/usercart/cart/addItem/${selectedProduct.id}"/>"
+											href="<C:url value="/usercart/cart/addItem/${selectedProduct.id}"/>"
 											class="btn btn-primary"><span class="fa fa-shopping-cart"></span>Add
 											to cart </a>
 
 										<a href="<spring:url value="/user/cart"/>"
 											class="btn btn-primary"><span
 											class="glyphicon glyphicon-hand-right"></span>View Cart</a>
-									</c:if>
+									</C:if>
 								</p>
-							</c:if>
-							<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+							</C:if>
+							<C:if test="${pageContext.request.userPrincipal.name == 'admin'}">
 								<p>
-									<a href="<c:url value="/product/edit/${selectedProduct.id}"/>"
+									<a href="<C:url value="/product/edit/${selectedProduct.id}"/>"
 										class="btn btn-primary">Edit product </a>
 								</p>
-							</c:if>
+							</C:if>
 							<br> <br> <br>
 						</p>
 					</div>
 					<div class="col-md-8 text-center">
 						<img alt=""
-							src="<c:url value="/img/pro-img/${selectedProduct.id}.png"/>" />
+							src="<C:url value="/img/pro-img/${selectedProduct.id}.png"/>" />
 					</div>
 				</div>
 			</div>
 		</section>
-	</c:if>
+	</C:if>
 
 	<!-- footer -->
 	<%@include file="footer.jsp"%>
@@ -180,22 +180,22 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="Resources/js/bootstrap.js"></script>
+	<script src="<C:url value="Resources/js/bootstrap.js"/>"></script>
 	<!-- SmartMenus jQuery plugin -->
-	<script type="text/javascript" src="Resources/js/jquery.smartmenus.js"></script>
+	<script type="text/javascript" src="<C:url value="Resources/js/jquery.smartmenus.js"/>"></script>
 	<!-- SmartMenus jQuery Bootstrap Addon -->
 	<script type="text/javascript"
-		src="Resources/js/jquery.smartmenus.bootstrap.js"></script>
+		src="<C:url value="Resources/js/jquery.smartmenus.bootstrap.js"/>"></script>
 	<!-- Product view slider -->
 	<script type="text/javascript"
-		src="Resources/js/jquery.simpleGallery.js"></script>
-	<script type="text/javascript" src="Resources/js/jquery.simpleLens.js"></script>
+		src="<C:url value="Resources/js/jquery.simpleGallery.js"/>"></script>
+	<script type="text/javascript" src="<C:url value="Resources/js/jquery.simpleLens.js"/>"></script>
 	<!-- slick slider -->
-	<script type="text/javascript" src="Resources/js/slick.js"></script>
+	<script type="text/javascript" src="<C:url value="Resources/js/slick.js"/>"></script>
 	<!-- Price picker slider -->
-	<script type="text/javascript" src="Resources/js/nouislider.js"></script>
+	<script type="text/javascript" src="<C:url value="Resources/js/nouislider.js"/>"></script>
 
 	<!-- Custom js -->
-	<script src="Resources/js/custom.js"></script>
+	<script src="<C:url value="Resources/js/custom.js"/>"></script>
 </body>
 </html>

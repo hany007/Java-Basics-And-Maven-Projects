@@ -2,7 +2,7 @@ package com.niit.goonline.controller;
 
 import java.io.IOException;
 import java.util.List;
-
+import org.springframework.security.core.userdetails.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import com.niit.goonline.DAO.UserDetailsDAO;
 import com.niit.goonline.model.Cart;
 import com.niit.goonline.model.CartItem;
 import com.niit.goonline.model.Product;
-import com.niit.goonline.model.User;
+
 import com.niit.goonline.model.UserDetails;
 
 @Controller
@@ -37,12 +37,10 @@ public class CartManagementController {
 	@Autowired
 	private ProductDAO productDAO;
 
-	
-	 @RequestMapping(value="/refreshCart/{cartId}") 
-	 String getCartById(@PathVariable(value = "cartId") int cartId) {
-		 	return "redirect:/user/cart/" + cartId;
-	 }
-	 
+	@RequestMapping(value = "/refreshCart/{cartId}")
+	String getCartById(@PathVariable(value = "cartId") int cartId) {
+		return "redirect:/user/cart/" + cartId;
+	}
 
 	// addItem method is used to add a item in user cart.
 
@@ -56,31 +54,29 @@ public class CartManagementController {
 
 		Product product = productDAO.get(id);
 		List<CartItem> cartItems = cart.getCartItems();
-		
-		double grandTotal=0.0;
+
+		double grandTotal = 0.0;
 		for (int i = 0; i < cartItems.size(); i++) {
-		
+
 			if (product.getId() == cartItems.get(i).getProduct().getId()) {
 				CartItem cartItem = cartItems.get(i);
-				
+
 				cartItem.setQuantity(cartItem.getQuantity() + 1);
 				cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
-				cartItemDAO.addCartItem(cartItem);	
-				
+				cartItemDAO.addCartItem(cartItem);
+
 				for (int j = 0; j < cartItems.size(); j++) {
 					grandTotal = grandTotal + cartItem.getTotalPrice();
 				}
 				cart.setGrandTotal(grandTotal);
-				
+
 				try {
 					cartDAO.validate(cart.getCartId());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
-				
-				
+
 				model.addAttribute("cartId", cart.getCartId());
 				model.addAttribute("successMsg", product.getName() + " added to cart");
 				model.addAttribute("cartList", cartItemDAO.getAllCartItems(cart.getCartId()));
@@ -94,14 +90,13 @@ public class CartManagementController {
 		cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
 		cartItem.setCart(cart);
 		cartItemDAO.addCartItem(cartItem);
-		
-		
+
 		for (int j = 0; j < cartItems.size(); j++) {
 			grandTotal = grandTotal + cartItem.getTotalPrice();
 		}
 		cart.setGrandTotal(grandTotal);
 		cartDAO.update(cart);
-			
+
 		model.addAttribute("successMsg", product.getName() + " product added to cart");
 		model.addAttribute("cartId", cart.getCartId());
 		model.addAttribute("cartList", cartItemDAO.getAllCartItems(cart.getCartId()));
@@ -121,16 +116,16 @@ public class CartManagementController {
 		}
 		return "redirect:/user/cart/" + cartId;
 	}
-	
+
 	@RequestMapping(value = "/addQty/{id}/{cartId}", method = RequestMethod.GET)
 	public String addQuantity(@PathVariable(value = "id") String id, @PathVariable(value = "cartId") int cartId,
 			Model model) {
 		CartItem cartItem = cartItemDAO.getCartItemByProductId(id, cartId);
 
-		Product product=productDAO.get(id);
+		Product product = productDAO.get(id);
 		cartItem.setQuantity(cartItem.getQuantity() + 1);
-		cartItem.setTotalPrice(cartItem.getQuantity()*product.getPrice());
-		cartItemDAO.addCartItem(cartItem);	
+		cartItem.setTotalPrice(cartItem.getQuantity() * product.getPrice());
+		cartItemDAO.addCartItem(cartItem);
 		return "redirect:/user/cart/" + cartId;
 	}
 
@@ -139,32 +134,28 @@ public class CartManagementController {
 			Model model) {
 		CartItem cartItem = cartItemDAO.getCartItemByProductId(id, cartId);
 
-		Product product=productDAO.get(id);
-		if(cartItem.getQuantity()>0){
-		cartItem.setQuantity(cartItem.getQuantity() - 1);
-		cartItem.setTotalPrice(cartItem.getQuantity()*product.getPrice());
-		cartItemDAO.addCartItem(cartItem);
+		Product product = productDAO.get(id);
+		if (cartItem.getQuantity() > 0) {
+			cartItem.setQuantity(cartItem.getQuantity() - 1);
+			cartItem.setTotalPrice(cartItem.getQuantity() * product.getPrice());
+			cartItemDAO.addCartItem(cartItem);
 		}
 		return "redirect:/user/cart/" + cartId;
 	}
-	
-	/*@RequestMapping(value = "/update/{cartId}", method = RequestMethod.GET)
-	public String updateCart(@PathVariable(value = "id") String id, @PathVariable(value = "cartId") int cartId,
-			Model model) {
 
-		CartItem cartItem = null;
-		
-		double grandTotal = 0.0;
-		List<CartItem> cartItems=cartItemDAO.getAllCartItems(cartId);
-		for (int j = 0; j < cartItems.size(); j++) {
-			grandTotal += cartItem.getTotalPrice();
-		}
-		Cart cart=cartDAO.getCartById(cartId);
-		cart.setGrandTotal(grandTotal);
-		cartDAO.update(cart);
-		return "redirect:/user/cart/" + cartId;
-	}
-	*/
+	/*
+	 * @RequestMapping(value = "/update/{cartId}", method = RequestMethod.GET)
+	 * public String updateCart(@PathVariable(value = "id") String
+	 * id, @PathVariable(value = "cartId") int cartId, Model model) {
+	 * 
+	 * CartItem cartItem = null;
+	 * 
+	 * double grandTotal = 0.0; List<CartItem>
+	 * cartItems=cartItemDAO.getAllCartItems(cartId); for (int j = 0; j <
+	 * cartItems.size(); j++) { grandTotal += cartItem.getTotalPrice(); } Cart
+	 * cart=cartDAO.getCartById(cartId); cart.setGrandTotal(grandTotal);
+	 * cartDAO.update(cart); return "redirect:/user/cart/" + cartId; }
+	 */
 
 	/* clearCartItems method is used to remove all items from user cart. */
 

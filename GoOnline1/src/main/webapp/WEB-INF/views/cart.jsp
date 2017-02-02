@@ -110,17 +110,16 @@
 					<div class="cart-view-area">
 						<div class="cart-view-table">
 							<ul class="breadcrum">
-								<li><a class="active" href="<c:url value="#"/>">MY
+								<li><a class="active" href="<C:url value="#"/>">MY
 										ORDERS</a></li>
-								<li><a
-									href="<c:url value="/usercart/cart/refreshCart/${cartId}"/>"
-									class="btn btn-primary">REFRESH </a>
-								<li>
+								 <li><a
+									href="<C:url value="/usercart/cart/refreshCart/${cartId}"/>" class="btn btn-primary">REFRESH </a>
+								<li> 
 								<li><a href="<spring:url value="/" />">CONTINUE
 										SHOPPING</a>
 								<li>
 								<li><a
-									href="<c:url value='/usercart/cart/clearCartItems/${cartId}'/>"
+									href="<C:url value='/usercart/cart/clearCartItems/${cartId}'/>"
 									class="btn btn-danger center"><span
 										class="glyphicon glyphicon-remove-sign"></span>CLEAR CART</a>
 								<li>
@@ -165,16 +164,15 @@
 															href="<C:url value="/usercart/cart/removeItem/${cartItem.product.id}/${cartId}"/>"></a>
 															<a class="fa fa-close"></fa></a></td>
 														<td><a href="#"><img
-																src="<c:url value='/resources/img/productImages/${cartItem.product.id}.png'/>"
+																src="<C:url value='/img/pro-img/${cartItem.product.id}.png'/>"
 																alt="img" width="140" height="140"></a></td>
 														<td>${cartItem.product.id}</td>
 														<td>${cartItem.product.name}</td>
 														<td>${cartItem.product.price}</td>
 														<td>${cartItem.quantity}&nbsp;&nbsp;&nbsp; <a
-															href="<c:url value="/usercart/cart/addQty/${cartItem.product.id}/${cartId}"/>"
-															class="btn btn-primary center">+ </a>&nbsp;&nbsp;&nbsp; <a
-															href="<c:url value="/usercart/cart/reduceQty/${cartItem.product.id}/${cartId}"/>"
-															class="btn btn-danger btnAction">- </a></td>
+															href="<C:url value="/usercart/cart/addQty/${cartItem.product.id}/${cartId}"/>"
+															class="btn btn-primary center">+</a>&nbsp;&nbsp;&nbsp; <a
+															href="<C:url value="/usercart/cart/reduceQty/${cartItem.product.id}/${cartId}"/>" class="btn btn-danger btnAction">-</a></td>
 														<td>${cartItem.totalPrice}</td>
 														
 													</tr>
@@ -238,7 +236,7 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="Resources/js/bootstrap.js"></script>
+	<script src="Resources/js/bootstrap.js"/></script>
 	<!-- SmartMenus jQuery plugin -->
 	<script type="text/javascript" src="Resources/js/jquery.smartmenus.js"></script>
 	<!-- SmartMenus jQuery Bootstrap Addon -->
@@ -246,7 +244,7 @@
 		src="Resources/js/jquery.smartmenus.bootstrap.js"></script>
 	<!-- Product view slider -->
 	<script type="text/javascript"
-		src="Resources/js/jquery.simpleGallery.js"></script>
+		src="<C:url value="Resources/js/jquery.simpleGallery.js"/>"></script>
 	<script type="text/javascript" src="Resources/js/jquery.simpleLens.js"></script>
 	<!-- slick slider -->
 	<script type="text/javascript" src="Resources/js/slick.js"></script>

@@ -114,6 +114,7 @@
 							<ul class="aa-head-top-nav-right">
 								<li><a href="account">Register</a></li>
 								<li><a href="loginpage">Login</a></li>
+								
 
 								<C:choose>
 									<C:when
@@ -121,10 +122,10 @@
 										<i class="fa fa-user-admin"></i>
 										<a>Hello,${pageContext.request.userPrincipal.name}</a>
 										<a href="<C:url value="/j_spring_security_logout"/>">
-											<li><i class="fa fa-logout"></li>Logout
+											<li><i class="fa fa-logout"></i></li>Logout
 										</a>
 										</li>
-										<br>
+										
 									</C:when>
 									<C:otherwise>
 
@@ -258,7 +259,7 @@
 															<C:forEach items="${category.products}" var="product">
 
 																<li><a
-																	href="<c:url value='product/get/${product.id}' />">${product.name}</a></li>
+																	href="<C:url value='product/get/${product.id}' />">${product.name}</a></li>
 
 															</C:forEach>
 

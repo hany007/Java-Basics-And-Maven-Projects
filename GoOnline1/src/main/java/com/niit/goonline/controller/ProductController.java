@@ -37,18 +37,24 @@ public class ProductController {
 	@Autowired(required = true)
 	private SupplierDAO supplierDAO;
 
+	
+
 	private Path path;
 
+	
+	
+	
+	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public String listProducts(Model model) {
-		System.out.println("inside /products list");
+		System.out.println("Hello.. I'm inside /products list");
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("product", new Product());
 		model.addAttribute("productList", this.productDAO.list());
 
 		model.addAttribute("Category", new Category());
 		model.addAttribute("Supplier", new Supplier());
-
+		
 		model.addAttribute("supplierList", this.supplierDAO.list());
 		model.addAttribute("categoryList", this.categoryDAO.list());
 
@@ -75,14 +81,18 @@ public class ProductController {
 
 		product.setCategory_id(category.getId());
 		product.setSupplier_id(supplier.getId());
-
+		
 		product.setCategory(category);
 		product.setSupplier(supplier);
-
 		productDAO.saveOrUpdate(product);
 
+		
+		
 		MultipartFile itemImage = product.getItemImage();
 		path = Paths.get("E:\\maven1\\GoOnline1\\src\\main\\webapp\\img\\pro-img\\" + product.getId() + ".png");
+		
+		
+		
 
 		if (itemImage != null && !itemImage.isEmpty()) {
 			try {
@@ -100,7 +110,7 @@ public class ProductController {
 
 	@RequestMapping("/product/remove/{id}")
 	public String removeProduct(@PathVariable("id") String id, ModelMap model) throws Exception {
-		System.out.println("Inside /products remove");
+		System.out.println("Hello.. I'm inside /products remove");
 		try {
 			productDAO.delete(id);
 			model.addAttribute("message", "Successfully deleted");
@@ -108,18 +118,19 @@ public class ProductController {
 			model.addAttribute("message", e.getMessage());
 			e.printStackTrace();
 		}
-
+		
+		
 		path = Paths.get("E:\\maven1\\GoOnline1\\src\\main\\webapp\\img\\pro-img\\" + id + ".png");
-
+		
 		if (Files.exists(path)) {
-			try {
-				Files.delete(path);
-				System.out.println("Image successfully deleted");
-			} catch (IOException e) {
-				System.out.println("Error in Image deletion");
-				e.printStackTrace();
-			}
-		}
+            try {
+                Files.delete(path);
+                System.out.println("Image successfully deleted");
+            } catch (IOException e) {
+            	  System.out.println("Error in Image deletion");
+                e.printStackTrace();
+            }
+        }
 		// redirectAttrs.addFlashAttribute(arg0, arg1)
 		return "redirect:/products";
 	}
@@ -127,27 +138,43 @@ public class ProductController {
 	@RequestMapping("/product/edit/{id}")
 	public String editProduct(@PathVariable("id") String id, Model model) {
 		model.addAttribute("isAdminClickedEditProducts", "true");
-		System.out.println("Inside /products edit");
+		System.out.println("Hello.. I'm inside /products edit");
 		model.addAttribute("Category", new Category());
 		model.addAttribute("Supplier", new Supplier());
 		model.addAttribute("supplierList", this.supplierDAO.list());
 		model.addAttribute("categoryList", this.categoryDAO.list());
-		model.addAttribute("product", this.productDAO.get(id));
+		model.addAttribute("product", this.productDAO.get(id)); 
 		model.addAttribute("productList", this.productDAO.list());
 		return "products";
 	}
-
-	@RequestMapping("product/get/{id}")
-	public String getSelectedProduct(@PathVariable("id") String id, Model model,
-			RedirectAttributes redirectAttributes) {
-		System.out.println("getSelectedProduct");
-
-		model.addAttribute("productList", this.productDAO.list());
-
-		redirectAttributes.addFlashAttribute("selectedProduct", this.productDAO.get(id));
-		model.addAttribute("selectedProduct", this.productDAO.get(id));
+	
+	/*@RequestMapping("/product/get/{id}")
+	public String getProduct(@PathVariable("id") String id, Model model) {
+		System.out.println("get Product");
+		model.addAttribute("Supplier", supplier);
+		model.addAttribute("Category", category);
+		model.addAttribute("supplierList", this.supplierDAO.list());
 		model.addAttribute("categoryList", this.categoryDAO.list());
-		return "product-detail";
+		product=productDAO.get(id);
+		model.addAttribute("product",product);
+		model.addAttribute("selectedProduct", this.productDAO.getByName(product.getName()));
+		model.addAttribute("productList", this.productDAO.list());
+		//return "/iindex";
+			return "redirect:/";
+	}*/
+	
+	
+	
+	@RequestMapping("product/get/{id}")
+	public String getSelectedProduct(@PathVariable("id") String id, Model model,RedirectAttributes redirectAttributes) {
+		System.out.println("getSelectedProduct");
+		
+		model.addAttribute("productList", this.productDAO.list());
+		
+		 redirectAttributes.addFlashAttribute("selectedProduct", this.productDAO.get(id));
+		model.addAttribute("selectedProduct", this.productDAO.get(id));
+		 model.addAttribute("categoryList", this.categoryDAO.list());
+		 return "product-detail";
 	}
-
+	
 }
